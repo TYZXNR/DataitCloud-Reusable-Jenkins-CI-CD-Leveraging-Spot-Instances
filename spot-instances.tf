@@ -31,8 +31,8 @@ resource "aws_spot_instance_request" "ansible-instance" {
   }
 }
 
-# Jenkins Instance
-resource "aws_spot_instance_request" "jenkins-instance" {
+# Jenkins Control
+resource "aws_spot_instance_request" "jenkins-control" {
   ami             = data.aws_ami.ubuntu_server.id
   instance_type   = "t2.medium"
   spot_price      = "0.94"
@@ -41,7 +41,7 @@ resource "aws_spot_instance_request" "jenkins-instance" {
   subnet_id          = aws_subnet.public-subnet-1.id
   associate_public_ip_address = true
   tags = {
-    Name = "jenkins-instance"
+    Name = "jenkins-control"
   }
 }
 
@@ -59,8 +59,8 @@ resource "aws_spot_instance_request" "sonarqube-instance" {
   }
 }
 
-# Prometheus Instance
-resource "aws_spot_instance_request" "prometheus-instance" {
+# Jenkins-agent-2
+resource "aws_spot_instance_request" "Jenkins-agent-2" {
   ami             = data.aws_ami.ubuntu_server.id
   instance_type   = "t2.medium"
   spot_price      = "0.94"
@@ -69,7 +69,7 @@ resource "aws_spot_instance_request" "prometheus-instance" {
   subnet_id          = aws_subnet.public-subnet-1.id
   associate_public_ip_address = true
   tags = {
-    Name = "prometheus-instance"
+    Name = "Jenkins-agent-2"
   }
 }
 
