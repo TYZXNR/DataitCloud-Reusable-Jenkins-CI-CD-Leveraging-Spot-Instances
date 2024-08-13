@@ -27,7 +27,7 @@ resource "aws_lb_target_group_attachment" "attachment" {
   port             = 80
 
   depends_on = [
-    aws_spot_instance_request.jenkins-instance,
+    aws_spot_instance_request.jenkins-control,
   ]
 }
 
@@ -37,7 +37,7 @@ resource "aws_lb_target_group_attachment" "attachment1" {
   port             = 80
 
   depends_on = [
-    aws_spot_instance_request.jenkins-instance,
+    aws_spot_instance_request.jenkins-control,
   ]
 }
 
